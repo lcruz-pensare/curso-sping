@@ -1,6 +1,10 @@
 package com.pensareluis.holamundo.controller;
 
+import com.pensareluis.holamundo.component.ExampleComponent;
 import com.pensareluis.holamundo.controller.model.Person;
+import com.pensareluis.holamundo.services.ExampleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,17 +20,27 @@ import java.util.List;
 public class ExampleController {
     public static final String EXAMPLE_VIEW= "example";
     //Primera forma
+    @Autowired
+    @Qualifier("exampleComponent")
+    private ExampleComponent exampleComponent;
+
+    @Autowired
+    @Qualifier("exampleService")
+    private ExampleService exampleService;
+
+
     @GetMapping("exampleString")
     public String exampleString(Model model)
     {
-        model.addAttribute("people",getPeople());
+        exampleComponent.sayHello();
+        model.addAttribute("people",exampleService.getListPeople());
         return EXAMPLE_VIEW;
     }
     //Segunda forma
      @GetMapping("exampleMAV")
     public ModelAndView exampleMAV(){
         ModelAndView mov= new ModelAndView(EXAMPLE_VIEW);
-        mov.addObject("people",getPeople());
+        mov.addObject("people",exampleService.getListPeople());
         return  mov;
     }
 
@@ -37,5 +51,5 @@ public class ExampleController {
         people.add(new Person ("Rafael", 30));
         people.add(new Person ("Naye", 27));
         return people;
-    }
+}
 }
