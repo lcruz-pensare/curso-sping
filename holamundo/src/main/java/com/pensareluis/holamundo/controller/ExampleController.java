@@ -19,6 +19,6 @@ public class ExampleController {
     //Segunda forma
      @GetMapping("exampleMAV")
     public ModelAndView exampleMAV(){
-        return new ModelAndView(EXAMPLE_VIEW);
+        return new ModelAndView(EXAMPLE_VIEW);//Comentario Diferenciador
     }
 }
