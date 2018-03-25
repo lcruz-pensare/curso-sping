@@ -32,5 +32,9 @@ dependencies {
 	runtime('com.h2database:h2')
 	runtime('mysql:mysql-connector-java')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile group: 'com.querydsl', name: 'querydsl-sql', version: '4.0.1'//querydsl
+	//compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    //compile "com.querydsl.apt:querydsl-mongodb:4.1.4"
+    //compile "org.springframework.data:spring-data-mongodb:1.9.1.RELEASE"
 	//testCompile('org.springframework.security:spring-security-test')
 }

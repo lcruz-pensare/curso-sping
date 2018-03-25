@@ -6,6 +6,7 @@ import com.pensareluis.Holamundo.services.CourseService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,33 +20,28 @@ import java.util.List;
 public class CourseServicesImpl implements CourseService {
 
     private static final Log LOG = LogFactory.getLog(CourseService.class);
-
+    @Autowired
+    @Qualifier("courseJpaRepository")
     CursoRepository cursoRepository;
 
     @Override
     public List<Course> listAllcourses() {
-        List<Course> cursos = cursoRepository.findAll();
-        return cursos;
+        return cursoRepository.findAll();
     }
 
     @Override
     public Course addCourse(Course course) {
-        return null;
+        return cursoRepository.save(course);
     }
 
     @Override
     public int removeCourse(Course id) {
-        return 0;
+         cursoRepository.delete(id);
+         return 0;
     }
 
     @Override
     public Course uddapteCourse(Course course) {
-        return null;
+        return cursoRepository.save(course);
     }
-
-    @Autowired
-    public void setCursoRepository(CursoRepository cursoRepository) {
-        this.cursoRepository = cursoRepository;
-    }
-
 }

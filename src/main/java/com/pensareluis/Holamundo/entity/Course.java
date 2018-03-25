@@ -13,7 +13,7 @@ public class Course {
 
     @Id
     @GeneratedValue
-    @Column(name="idcourse")
+    @Column(name="idCourse")
     public int id;
     @Column(name="name")
     public String name;
@@ -74,5 +74,16 @@ public class Course {
         this.descrption = descrption;
         this.price = price;
         this.hours = hours;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", descrption='" + descrption + '\'' +
+                ", price=" + price +
+                ", hours=" + hours +
+                '}';
     }
 }

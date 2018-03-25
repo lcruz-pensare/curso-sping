@@ -10,6 +10,6 @@ import java.io.Serializable;
  * @author Jorge Álvarez
  * @version 1.0 - 2018/03/23
  */
-@Repository
+@Repository("courseJpaRepository")
 public interface CursoRepository extends JpaRepository<Course, Integer>, Serializable {
 }

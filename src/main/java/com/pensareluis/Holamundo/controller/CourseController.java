@@ -35,6 +35,7 @@ public class CourseController {
         ModelAndView mov = new ModelAndView(COURSES_VIEW);
         mov.addObject("courses",courseService.listAllcourses());
         mov.addObject("titulo","Titulo: Cursos");
+        mov.addObject("course",new Course());
 
         return mov;
     }
