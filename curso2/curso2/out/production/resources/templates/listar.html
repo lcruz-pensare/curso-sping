@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaft.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title  th:text="${titulo}">Title</title>
+</head>
+<body>
+<h1 th:text="${titulo}"></h1>
+<table>
+    <tr>
+    <thead>Id</thead>
+    <thead>Nombre</thead>
+    <thead>Apellido</thead>
+    <thead>Correo</thead>
+    <thead>Fecha</thead>
+    </tr>
+    <tbody>
+    <tr th:each="cliente: ${clientes}"><!-- Esto va a iterar por cada cliente en la lista llamada clientes-->
+        <td th:text="${cliente.id}"></td>
+        <td th:text="${cliente.nombre}"></td>
+        <td th:text="${cliente.apellido}"></td> <!-- En la vista se pone como si fuera un atributo, pero realmente invocamos un get-->
+        <td th:text="${cliente.email}"></td>
+        <td th:text="${cliente.creatAt}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

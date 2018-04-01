@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaft.org"><!-- Esta direccion es como un include para usar thymeleaft en este archivo-->
+<link rel="stylesheet" th:href="@{/css/style.css}"> </link> <!-- El link de pone para especificar los estilos de este archivo
+en este caso hacemos referencia a una direccion parra poder hacerlo se usa arroba-->
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text ="${mensaje}">Title</title> <!-- th: text ="${NOMBREVARIABLE}" Se usa para mostrar un valor de un atributo
+    con ayuda del addattribute del model-->
+</head>
+<body>>
+<h1 th:text ="${mensaje}"></h1>
+    <img th:src="@{/imgs/dortmund.png}"> </img> <!-- Para agregar imagenes, se usar <img> seguido de th:src="@{RUTRA Y NOMBRE
+    DE LA IMAGEN}"</img> -->
+</body>
+</html>
+
